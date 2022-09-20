@@ -1,0 +1,5 @@
+Como saber em toda a plicação que o usuario está logado?
+
+*criar um state que ara salvar o usuario logado e salvar no redux para ter na aplicação toda vez que o usuario logar ou deslogar.*
+
+Interação entre bancos 
