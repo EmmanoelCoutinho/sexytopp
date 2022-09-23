@@ -86,9 +86,9 @@ function FantasyFeed() {
     e.preventDefault();
     e.target.reset();
 
-    const collRef = doc(db, 'users', userData.uid, 'myPosts', `${postValue.substring(0, 30)}`);
+    const docRef = doc(db, 'users', userData.uid, 'myPosts', `${postValue.substring(0, 30)}`);
 
-    await setDoc(collRef, {
+    await setDoc(docRef, {
       post_id: posts == undefined ? 1 : ++posts.length,
       sendBy: userData.username,
       sendBy_img: userData.avatar_img,
