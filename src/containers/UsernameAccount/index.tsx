@@ -173,6 +173,8 @@ function UsernameAccount(props: any) {
           setIsOpen={setModalIsOpen}
           sendTo="MarcosBelmont"
           sendToUid={propsData.uid}
+          sendFrom={userData.username}
+          sendFromUid={userData.uid}
         />
       )}
       <FooterMenu />
