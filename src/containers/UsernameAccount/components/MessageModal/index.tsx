@@ -24,11 +24,7 @@ function MessageModal({
 }: MessageModalProps) {
   const [message, SetMessage] = useState('');
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    e.target.reset();
-    setIsOpen(false);
-
+  const createFromMessage = () => {
     const sendFromDocRef = doc(db, 'users', sendToUid, 'chats', sendFromUid);
     const sendFromMessageRef = doc(
       db,
@@ -40,17 +36,38 @@ function MessageModal({
       message
     );
 
-    // const sendToDocRef = doc(db, 'users', sendFromUid, 'chats');
-
     setDoc(sendFromDocRef, {
-      send_from_me: false,
       send_at: Timestamp.now()
     });
 
     setDoc(sendFromMessageRef, {
       message,
+      send_from_me: false,
       send_at: Timestamp.now()
     });
+  };
+
+  const createToMessage = () => {
+    const sendToDocRef = doc(db, 'users', sendFromUid, 'chats', sendToUid);
+    const sendToMessageRef = doc(db, 'users', sendFromUid, 'chats', sendToUid, 'messages', message);
+
+    setDoc(sendToDocRef, {
+      send_at: Timestamp.now()
+    });
+
+    setDoc(sendToMessageRef, {
+      message,
+      send_from_me: true,
+      send_at: Timestamp.now()
+    });
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    e.target.reset();
+    setIsOpen(false);
+    createFromMessage();
+    createToMessage();
   };
 
   return (

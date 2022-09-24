@@ -73,6 +73,8 @@ export const Body = styled.form`
     padding: 12px;
     background-color: #ececec;
 
+    font-size: 16px;
+
     :focus {
       outline: none;
     }
