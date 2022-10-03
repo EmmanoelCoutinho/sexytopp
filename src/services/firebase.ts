@@ -10,14 +10,6 @@ import { initializeApp } from 'firebase/app';
 //   measurementId: process.env.REACT_APP_MEASUREMENT_IDREACT_APP_
 // };
 
-export const firebaseConfig = {
-  apiKey: 'AIzaSyAQNyI3DJ7BrxB5_DEkjxlH7-ZIy4rwtBE',
-  authDomain: 'sexytopp-9aaa6.firebaseapp.com',
-  projectId: 'sexytopp-9aaa6',
-  storageBucket: 'sexytopp-9aaa6.appspot.com',
-  messagingSenderId: '752123626372',
-  appId: '1:752123626372:web:2734afc18195058c4813d1',
-  measurementId: 'G-112JL9JTVH'
-};
+// inserir aqui o firebaseConfig
 
 export const app = initializeApp(firebaseConfig);
